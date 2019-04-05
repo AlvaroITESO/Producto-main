@@ -32,7 +32,7 @@ export class ProductosListaComponent implements OnInit {
     this.tmp= null;
    
 
-    if (this.router.url === '/productos') {
+    if (this.router.url == '/productos') {
       this.modoCarrito = false;
     } else {
       this.modoCarrito = true;
