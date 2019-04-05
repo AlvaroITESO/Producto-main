@@ -1,0 +1,40 @@
+
+
+<span *ngIf = "!modoCarrito">
+<p>productos seleccionados: {{getCurrentItems()}}</p>
+</span>
+
+<span *ngIf = "modoCarrito">
+  <p>Suma: {{sumar()}}</p>
+</span>
+
+
+<button (click)="agregar()" type="button" class="btn btn-primary mt-2" data-toggle="modal"
+  data-target="#modelId">
+  Agregar a carrito
+</button>
+
+<span  *ngIf = "!modoCarrito">
+  <app-producto-item 
+  *ngFor="let p of productos" 
+  [producto]="p" 
+  (detalle)="detalle($event)"
+  >
+  </app-producto-item>
+</span>
+
+<span  *ngIf = "modoCarrito">
+  <app-producto-item 
+  *ngFor="let p of carrito" 
+  [producto]="p" 
+  (detalle)="detalle($event)"
+  (borrar)="borrar($event)"
+  (añadir)="toggleEvent($event)">
+</app-producto-item>
+</span>
+
+
+<button (click)="agregar()" type="button" class="btn btn-primary mt-2" data-toggle="modal"
+  data-target="#modelId">
+  Agregar a carrito
+</button>
